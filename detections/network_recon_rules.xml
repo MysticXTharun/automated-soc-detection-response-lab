@@ -1,0 +1,18 @@
+<group name="custom_network_recon,">
+
+  <rule id="100100" level="7">
+    <if_group>sysmon_event3</if_group>
+
+    <field name="win.eventdata.sourceIp">^192\.168\.130\.141$</field>
+    <field name="win.eventdata.initiated">^false$</field>
+
+    <description>LAB: External network connection from Kali testing host $(win.eventdata.sourceIp) to Windows endpoint $(win.eventdata.destinationIp):$(win.eventdata.destinationPort)</description>
+
+    <mitre>
+      <id>T1046</id>
+    </mitre>
+
+    <group>network_reconnaissance,lab_detection,</group>
+  </rule>
+
+</group>
