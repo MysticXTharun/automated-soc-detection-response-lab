@@ -1,0 +1,23 @@
+{
+    "timestamp": "2026-08-13T05:14:03.915+0000",
+    "rule": {
+        "id": "100111",
+        "level": 10,
+        "description": "LAB: Repeated blocked TCP connections detected from Kali 192.168.130.141 - possible network reconnaissance"
+    },
+    "agent": {
+        "id": "001",
+        "name": "DESKTOP-D316EOG",
+        "ip": "192.168.130.130"
+    },
+    "data": {
+        "win": {
+            "eventdata": {
+                "sourceAddress": "192.168.130.141",
+                "destAddress": "192.168.130.130",
+                "destPort": "445",
+                "protocol": "6"
+            }
+        }
+    }
+}
