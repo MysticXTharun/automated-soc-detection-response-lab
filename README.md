@@ -1,1196 +1,665 @@
-\# Automated SOC Detection \& Response Lab
+# Automated SOC Detection & Response Lab
 
+A hands-on Security Operations Center (SOC) engineering lab designed to simulate a real-world detection and response environment using Wazuh, Sysmon, Windows 11, Kali Linux, and Python automation.
 
+The project progresses from endpoint telemetry collection and SIEM monitoring to threat detection, investigation, custom detection engineering, IOC enrichment, and automated incident response.
 
-A hands-on Security Operations Center (SOC) engineering lab designed to simulate a real-world detection and response environment using \*\*Wazuh, Sysmon, Windows 11, Kali Linux, and Python automation\*\*.
+Current Status: Wazuh, Windows 11 endpoint monitoring, Sysmon telemetry, and SIEM visibility are operational. Kali Linux preparation is currently in progress.
 
+---
 
+## Project Objective
 
-The project progresses from endpoint telemetry collection and SIEM monitoring to \*\*threat detection, investigation, custom detection engineering, IOC enrichment, and automated incident response\*\*.
-
-
-
-> \*\*Current Status:\*\* Phase 1 completed — Wazuh, Windows 11 endpoint monitoring, Sysmon telemetry, and SIEM visibility are operational.
-
-
-
-\---
-
-
-
-\## Project Objective
-
-
-
-The objective of this project is to build an end-to-end SOC workflow:
-
-
+The objective of this project is to build an end-to-end SOC detection, investigation, and automated response environment.
 
 ```text
-
 Kali Linux
-
 Attack Simulation
-
-&#x20;     │
-
-&#x20;     ▼
-
+      |
+      v
 Windows 11 Endpoint
-
-&#x20;     │
-
-&#x20;     ▼
-
+      |
+      v
 Sysmon Telemetry
-
-&#x20;     │
-
-&#x20;     ▼
-
+      |
+      v
 Wazuh Agent
-
-&#x20;     │
-
-&#x20;     ▼
-
+      |
+      v
 Wazuh Manager / SIEM
-
-&#x20;     │
-
-&#x20;     ▼
-
-Detection \& Investigation
-
-&#x20;     │
-
-&#x20;     ▼
-
+      |
+      v
+Detection & Investigation
+      |
+      v
 Custom Detection Rules
-
-&#x20;     │
-
-&#x20;     ▼
-
+      |
+      v
 SOC Automation
-
-&#x20;     │
-
-&#x20;     ├── IOC Enrichment
-
-&#x20;     ├── Risk Evaluation
-
-&#x20;     ├── Automated Response
-
-&#x20;     └── Incident Documentation
-
+      |
+      +---- IOC Enrichment
+      |
+      +---- Risk Evaluation
+      |
+      +---- Automated Response
+      |
+      +---- Incident Documentation
 ```
 
+The final objective is to progress from manual SOC investigation to automated detection and response workflows.
 
+---
 
-The final goal is to demonstrate how a SOC analyst can move from \*\*manual alert investigation to automated detection and response workflows\*\*.
+## Lab Architecture
 
-
-
-\---
-
-
-
-\## Lab Architecture
-
-
-
-| System | Purpose | Lab IP |
-
+| Component | Purpose | Lab IP |
 |---|---|---|
+| Ubuntu Server | Wazuh Manager / SIEM | 192.168.130.129 |
+| Windows 11 Enterprise | Monitored Endpoint | 192.168.130.130 |
+| Kali Linux | Controlled Attack Simulation | 192.168.130.141 |
 
-| Ubuntu Server | Wazuh Manager / SIEM | `192.168.130.129` |
-
-| Windows 11 Enterprise | Monitored endpoint | `192.168.130.130` |
-
-| Kali Linux | Controlled attack simulation | `192.168.130.141` |
-
-
-
-\### Security Stack
-
-
+## Security Stack
 
 | Technology | Purpose |
-
 |---|---|
-
-| Wazuh 4.14.7 | SIEM / XDR / Detection |
-
-| Sysmon 15.21 | Advanced Windows telemetry |
-
+| Wazuh 4.14.7 | SIEM, XDR and threat detection |
+| Sysmon 15.21 | Advanced Windows endpoint telemetry |
 | Windows Event Logs | Endpoint security events |
-
 | Kali Linux | Controlled security simulations |
+| Python | SOC automation - upcoming |
+| MITRE ATT&CK | Detection mapping - upcoming |
+| Wazuh Active Response | Automated containment - upcoming |
 
-| Python | SOC automation — upcoming |
+---
 
-| MITRE ATT\&CK | Detection mapping — upcoming |
+# Phase 1 - Wazuh Server Deployment
 
-| Wazuh Active Response | Automated containment — upcoming |
+Wazuh was deployed on an Ubuntu Server virtual machine.
 
+The Wazuh server provides centralized capabilities for:
 
+Security monitoring
 
-\---
+Log collection
 
+Threat detection
 
+Endpoint visibility
 
-\# Phase 1 — Wazuh Server Deployment
+File Integrity Monitoring
 
+Security Configuration Assessment
 
+Threat hunting
 
-Wazuh was deployed on an Ubuntu Server VM to provide centralized:
+The Wazuh Dashboard was successfully deployed and made accessible over HTTPS.
 
+---
 
+# Phase 2 - Windows 11 Endpoint Integration
 
-\- Security monitoring
+A Windows 11 Enterprise virtual machine was configured as the monitored endpoint.
 
-\- Log collection
-
-\- Threat detection
-
-\- Endpoint visibility
-
-\- Security Configuration Assessment
-
-\- File Integrity Monitoring
-
-\- Threat hunting
-
-
-
-The Wazuh dashboard was successfully deployed and made accessible over HTTPS.
-
-
-
-\---
-
-
-
-\# Phase 2 — Windows 11 Endpoint Integration
-
-
-
-A Windows 11 Enterprise VM was configured as the monitored endpoint.
-
-
-
-Before agent deployment, connectivity to the Wazuh Manager was verified.
-
-
+Before deploying the Wazuh agent, connectivity between Windows 11 and the Wazuh Manager was verified.
 
 ```powershell
-
 Test-NetConnection 192.168.130.129 -Port 1514
-
 Test-NetConnection 192.168.130.129 -Port 1515
-
 ```
 
-
-
-Both connections were successful.
-
-
-
-The Wazuh agent was then installed on Windows 11.
-
-
-
-\### Troubleshooting
-
-
-
-During deployment, the Wazuh service installed successfully but immediately stopped.
-
-
-
-The agent log was investigated:
-
-
-
-```powershell
-
-Get-Content "C:\\Program Files (x86)\\ossec-agent\\ossec.log" -Tail 30
-
-```
-
-
-
-The following error was identified:
-
-
+Both connectivity tests returned:
 
 ```text
+TcpTestSucceeded : True
+```
 
+The Wazuh Windows agent was then installed.
+
+## Agent Troubleshooting
+
+During initial deployment, the Wazuh service installed successfully but would not remain running.
+
+The Wazuh agent log was investigated using:
+
+```powershell
+Get-Content "C:\Program Files (x86)\ossec-agent\ossec.log" -Tail 30
+```
+
+The following error was discovered:
+
+```text
 Invalid server address found: '0.0.0.0'
-
 No client configured. Exiting.
-
 ```
 
+## Root Cause
 
+The Wazuh agent did not contain the correct Wazuh Manager address.
 
-\### Root Cause
+The manager address was corrected to:
 
-
-
-The Wazuh agent did not have the correct manager address configured.
-
-
-
-\### Resolution
-
-
-
-The manager address inside `ossec.conf` was changed to:
-
-
-
-```xml
-
-<address>192.168.130.129</address>
-
+```text
+192.168.130.129
 ```
 
-
-
-The Wazuh service was restarted:
-
-
+The Wazuh service was then started:
 
 ```powershell
-
 Start-Service wazuhsvc
-
 ```
-
-
-
-Service verification:
-
-
-
-```powershell
-
-Get-Service wazuhsvc
-
-```
-
-
-
-Result:
-
-
-
-```text
-
-Status   Name       DisplayName
-
-\------   ----       -----------
-
-Running  wazuhsvc   Wazuh
-
-```
-
-
-
-The agent subsequently enrolled successfully and received a valid authentication key.
-
-
-
-\---
-
-
-
-\## Wazuh Endpoint Status
-
-
-
-```text
-
-Agent ID       : 001
-
-Status         : Active
-
-IP Address     : 192.168.130.130
-
-Wazuh Version  : 4.14.7
-
-Operating OS   : Windows 11 Enterprise Evaluation
-
-```
-
-
-
-This confirmed:
-
-
-
-```text
-
-Windows 11
-
-&#x20;   │
-
-&#x20;   │ Wazuh Agent
-
-&#x20;   ▼
-
-Wazuh Manager
-
-&#x20;   │
-
-&#x20;   ▼
-
-Wazuh Dashboard
-
-```
-
-
-
-\---
-
-
-
-\# Phase 3 — Sysmon Deployment
-
-
-
-Microsoft Sysinternals \*\*Sysmon\*\* was installed to provide enhanced endpoint telemetry beyond standard Windows event logging.
-
-
-
-Sysmon was installed using:
-
-
-
-```powershell
-
-.\\Sysmon64.exe -accepteula -i
-
-```
-
-
 
 Service status was verified:
 
-
-
 ```powershell
-
-Get-Service Sysmon64
-
+Get-Service wazuhsvc
 ```
-
-
 
 Result:
 
+```text
+Status   Name       DisplayName
+Running  wazuhsvc   Wazuh
+```
 
+The agent successfully enrolled with the Wazuh Manager and received a valid authentication key.
+
+## Wazuh Endpoint Status
 
 ```text
-
-Running  Sysmon64
-
+Agent ID       : 001
+Status         : Active
+IP Address     : 192.168.130.130
+Wazuh Version  : 4.14.7
+Operating OS   : Windows 11 Enterprise Evaluation
 ```
 
+This successfully established:
 
+```text
+Windows 11 Endpoint
+        |
+        | Wazuh Agent
+        v
+Wazuh Manager
+        |
+        v
+Wazuh Dashboard
+```
 
-\---
+---
 
+# Phase 3 - Sysmon Deployment
 
+Microsoft Sysinternals Sysmon was installed on the Windows 11 endpoint to provide enhanced endpoint telemetry.
 
-\# Phase 4 — Sysmon → Wazuh Integration
+Sysmon was installed using:
 
+```powershell
+.\Sysmon64.exe -accepteula -i
+```
 
+The Sysmon service was verified:
 
-The Wazuh agent was configured to collect the Sysmon Operational event channel.
+```powershell
+Get-Service Sysmon64
+```
 
+Result:
 
+```text
+Status   Name
+Running  Sysmon64
+```
 
-The following configuration was added to the Windows Wazuh agent configuration:
+---
 
+# Phase 4 - Sysmon Integration with Wazuh
 
+The Wazuh Windows agent was configured to collect events from the Sysmon Operational event channel.
+
+The following configuration was added to the Wazuh agent configuration:
 
 ```xml
-
 <localfile>
-
-&#x20; <location>Microsoft-Windows-Sysmon/Operational</location>
-
-&#x20; <log\_format>eventchannel</log\_format>
-
+  <location>Microsoft-Windows-Sysmon/Operational</location>
+  <log_format>eventchannel</log_format>
 </localfile>
-
 ```
-
-
 
 The Wazuh agent was restarted:
 
-
-
 ```powershell
-
 Restart-Service wazuhsvc
-
 ```
-
-
 
 Both services were verified:
 
-
-
 ```powershell
-
 Get-Service wazuhsvc
-
-Get-Service \*sysmon\*
-
+Get-Service Sysmon64
 ```
-
-
 
 Result:
 
-
-
 ```text
-
-Wazuh Agent  → Running
-
-Sysmon       → Running
-
+Wazuh Agent : Running
+Sysmon64    : Running
 ```
 
+---
 
+# Phase 5 - SOC-Focused Sysmon Configuration
 
-\---
-
-
-
-\# Phase 5 — SOC-Focused Sysmon Configuration
-
-
-
-A SOC-focused Sysmon configuration was applied to improve endpoint visibility.
-
-
+A SOC-focused Sysmon configuration was applied to improve endpoint visibility and collect security-relevant telemetry.
 
 The configuration was applied using:
 
-
-
 ```powershell
-
-.\\Sysmon64.exe -c .\\sysmonconfig-export.xml
-
+.\Sysmon64.exe -c .\sysmonconfig-export.xml
 ```
 
+Sysmon continued running successfully after the configuration update.
 
+## Telemetry Validation
 
-Sysmon remained operational after the configuration update.
-
-
-
-\---
-
-
-
-\## Telemetry Validation
-
-
-
-Sysmon events were queried directly from the Windows endpoint:
-
-
+Sysmon events were queried directly from Windows:
 
 ```powershell
-
 Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 20 |
-
 Select-Object TimeCreated, Id
-
 ```
 
+The following Sysmon events were observed:
 
-
-Multiple event types were successfully generated.
-
-
-
-| Event ID | Sysmon Event | SOC Value |
-
-|---:|---|---|
-
-| 1 | Process Creation | Detect suspicious process execution |
-
-| 3 | Network Connection | Monitor outbound/inbound connections |
-
+| Event ID | Event | SOC Purpose |
+|---|---|---|
+| 1 | Process Creation | Monitor process execution |
+| 3 | Network Connection | Monitor network connections |
 | 8 | CreateRemoteThread | Identify possible process injection |
+| 22 | DNS Query | Monitor domain resolution |
 
-| 22 | DNS Query | Detect suspicious domain resolution |
+This confirmed that the enhanced Sysmon configuration was successfully generating security telemetry.
 
+---
 
-
-Example telemetry observed:
-
-
-
-```text
-
-Event ID 22
-
-Event ID 8
-
-Event ID 3
-
-Event ID 1
-
-```
-
-
-
-\---
-
-
-
-\# Phase 6 — Wazuh Detection Validation
-
-
+# Phase 6 - Wazuh Detection Validation
 
 Sysmon and Windows telemetry successfully reached the Wazuh platform.
 
+Events were validated through the Wazuh Threat Hunting interface using Windows agent ID 001.
 
+Wazuh generated detections related to endpoint activity, including discovery and PowerShell-related activity.
 
-Events were validated through:
-
-
-
-```text
-
-Wazuh Dashboard
-
-&#x20;     ↓
-
-Threat Intelligence
-
-&#x20;     ↓
-
-Threat Hunting
-
-&#x20;     ↓
-
-Agent ID: 001
-
-```
-
-
-
-Wazuh successfully generated detections related to endpoint activity, including discovery and PowerShell-related activity.
-
-
-
-This confirmed the complete telemetry pipeline:
-
-
+The complete telemetry pipeline is now operational:
 
 ```text
-
 Windows Activity
-
-&#x20;     │
-
-&#x20;     ▼
-
+      |
+      v
 Sysmon
-
-&#x20;     │
-
-&#x20;     ▼
-
-Windows Event Channel
-
-&#x20;     │
-
-&#x20;     ▼
-
+      |
+      v
+Windows Event Logs
+      |
+      v
 Wazuh Agent
-
-&#x20;     │
-
-&#x20;     ▼
-
+      |
+      v
 Wazuh Manager
-
-&#x20;     │
-
-&#x20;     ▼
-
+      |
+      v
 Detection Rules
-
-&#x20;     │
-
-&#x20;     ▼
-
-Threat Hunting
-
+      |
+      v
+Threat Hunting Dashboard
 ```
 
+---
 
+# Phase 7 - Kali Linux Preparation
 
-\---
+Kali Linux is being configured as the controlled security-testing system.
 
-
-
-\# Phase 7 — Kali Linux Preparation
-
-
-
-Kali Linux is being configured as the controlled adversary simulation machine.
-
-
+Current Kali Linux lab IP:
 
 ```text
-
-Kali Linux IP:
-
 192.168.130.141
-
 ```
 
+Connectivity between Kali Linux and the Wazuh server has been successfully verified.
 
-
-Connectivity between Kali and the Wazuh server has been successfully verified.
-
-
+Current lab architecture:
 
 ```text
-
-Kali Linux
-
-192.168.130.141
-
-&#x20;     │
-
-&#x20;     ├──────────────► Wazuh
-
-&#x20;     │                192.168.130.129
-
-&#x20;     │
-
-&#x20;     └──────────────► Windows 11
-
-&#x20;                      192.168.130.130
-
+              Wazuh Server
+            192.168.130.129
+                   ^
+                   |
+             Security Logs
+                   |
+             Windows 11
+            192.168.130.130
+             Wazuh + Sysmon
+                   ^
+                   |
+          Controlled Testing
+                   |
+              Kali Linux
+            192.168.130.141
 ```
 
+Kali-to-Windows connectivity validation is the next step.
 
+---
 
-Windows connectivity validation and controlled security simulations are the next stage.
+# SOC Automation Roadmap
 
+The automation portion of the project will be introduced progressively.
 
+The purpose is to first understand how an analyst manually detects and investigates an incident before automating the repetitive portions.
 
-\---
-
-
-
-\# SOC Automation Roadmap
-
-
-
-The automation portion will be introduced progressively so that every stage can be understood and investigated manually before it is automated.
-
-
-
-\### Stage 1 — Detection
-
-
+## Stage 1 - Detection
 
 ```text
-
 Security Activity
-
-&#x20;     ↓
-
+      |
+      v
 Sysmon
-
-&#x20;     ↓
-
+      |
+      v
 Wazuh Detection
-
 ```
 
+## Stage 2 - Investigation
 
-
-\### Stage 2 — Investigation
-
-
-
-Extract information such as:
-
-
+Important information will be extracted from alerts, including:
 
 ```text
-
 Source IP
-
 Destination IP
-
 Username
-
-Process
-
+Process Name
 Command Line
-
 File Hash
-
 Domain
-
 Event ID
-
-MITRE Technique
-
-```
-
-
-
-\### Stage 3 — IOC Enrichment
-
-
-
-Python automation will enrich indicators using threat-intelligence sources.
-
-
-
-```text
-
-Wazuh Alert
-
-&#x20;     ↓
-
-Extract IOC
-
-&#x20;     ↓
-
-Threat Intelligence Lookup
-
-&#x20;     ↓
-
-Reputation / Context
-
-```
-
-
-
-\### Stage 4 — Risk Decision
-
-
-
-Automation will evaluate factors such as:
-
-
-
-```text
-
 Alert Severity
-
-&#x20;     +
-
-IOC Reputation
-
-&#x20;     +
-
-Detection Context
-
-&#x20;     +
-
-Repeated Activity
-
-&#x20;     ↓
-
-Risk Decision
-
+MITRE ATT&CK Technique
 ```
 
+## Stage 3 - IOC Enrichment
 
-
-\### Stage 5 — Automated Response
-
-
-
-Approved lab scenarios will trigger Wazuh Active Response.
-
-
-
-Example:
-
-
+Python automation will later process indicators extracted from Wazuh alerts.
 
 ```text
-
-Malicious Activity Detected
-
-&#x20;         ↓
-
 Wazuh Alert
-
-&#x20;         ↓
-
-IOC Enrichment
-
-&#x20;         ↓
-
-Risk Threshold Met
-
-&#x20;         ↓
-
-Active Response
-
-&#x20;         ↓
-
-Block Source IP
-
+      |
+      v
+Extract IOC
+      |
+      v
+Threat Intelligence Enrichment
+      |
+      v
+Reputation and Context
 ```
 
+## Stage 4 - Risk Evaluation
 
-
-\### Stage 6 — Incident Documentation
-
-
-
-The final automation workflow will generate structured investigation information:
-
-
+The automation workflow will evaluate information such as:
 
 ```text
-
-Incident ID
-
-Detection Time
-
-Affected Endpoint
-
-Source IP
-
-Detection Rule
-
-MITRE ATT\&CK Technique
-
+Alert Severity
+      +
 IOC Reputation
+      +
+Detection Context
+      +
+Repeated Activity
+      |
+      v
+Risk Decision
+```
 
+## Stage 5 - Automated Response
+
+Approved lab scenarios will eventually trigger Wazuh Active Response.
+
+Example workflow:
+
+```text
+Suspicious Activity
+       |
+       v
+Wazuh Detection
+       |
+       v
+IOC Enrichment
+       |
+       v
+Risk Evaluation
+       |
+       v
+Response Decision
+       |
+       v
+Wazuh Active Response
+       |
+       v
+Containment
+```
+
+## Stage 6 - Incident Documentation
+
+The final automation workflow will create structured incident information such as:
+
+```text
+Incident ID
+Detection Time
+Affected Endpoint
+Source IP
+Detection Rule
+MITRE ATT&CK Technique
+IOC Reputation
 Response Action
-
 Final Status
-
 ```
 
+---
 
+# Planned Detection Scenarios
 
-\---
+The following controlled scenarios will be developed throughout the project:
 
+Network reconnaissance
 
+Authentication failures
 
-\# Planned Detection Scenarios
+Suspicious PowerShell activity
 
+Abnormal process execution
 
+Suspicious DNS activity
 
-The lab will progressively implement controlled scenarios such as:
+File integrity changes
 
+Suspicious network connections
 
+Persistence-related activity
 
-\- Network reconnaissance
+Process injection indicators
 
-\- Authentication failures
-
-\- Suspicious PowerShell execution
-
-\- Abnormal process execution
-
-\- DNS-based indicators
-
-\- File integrity changes
-
-\- Suspicious outbound connections
-
-\- Credential-access indicators
-
-\- Persistence-related activity
-
-\- Process injection indicators
-
-
-
-Each scenario will follow:
-
-
+Each scenario will follow the same SOC lifecycle:
 
 ```text
-
 Simulate
-
-&#x20;  ↓
-
+   |
+   v
 Detect
-
-&#x20;  ↓
-
+   |
+   v
 Investigate
-
-&#x20;  ↓
-
-Map to MITRE ATT\&CK
-
-&#x20;  ↓
-
-Create/Improve Detection
-
-&#x20;  ↓
-
+   |
+   v
+MITRE ATT&CK Mapping
+   |
+   v
+Improve Detection
+   |
+   v
 Automate
-
-&#x20;  ↓
-
+   |
+   v
 Validate Response
-
 ```
 
+---
 
-
-\---
-
-
-
-\# Repository Structure
-
-
+# Repository Structure
 
 ```text
-
 automated-soc-detection-response-lab/
-
-│
-
-├── README.md
-
-│
-
-├── docs/
-
-│
-
-├── screenshots/
-
-│
-
-├── detections/
-
-│
-
-├── automation/
-
-│
-
-├── active-response/
-
-│
-
-├── attack-simulations/
-
-│
-
-└── incident-reports/
-
+|
+|-- README.md
+|
+|-- docs/
+|
+|-- screenshots/
+|
+|-- detections/
+|
+|-- automation/
+|
+|-- active-response/
+|
+|-- attack-simulations/
+|
+`-- incident-reports/
 ```
 
+## Directory Purpose
 
+docs
 
-\### `docs/`
+Architecture, deployment notes, troubleshooting, and technical documentation.
 
+detections
 
+Custom Wazuh detection rules and MITRE ATT&CK mappings.
 
-Architecture, installation notes, troubleshooting, and technical documentation.
-
-
-
-\### `detections/`
-
-
-
-Custom Wazuh detection rules and MITRE ATT\&CK mappings.
-
-
-
-\### `automation/`
-
-
+automation
 
 Python-based SOC automation and IOC enrichment scripts.
 
+active-response
 
+Wazuh Active Response configurations and containment workflows.
 
-\### `active-response/`
-
-
-
-Automated containment and Wazuh Active Response configurations.
-
-
-
-\### `attack-simulations/`
-
-
+attack-simulations
 
 Controlled lab scenarios used to validate detections.
 
+incident-reports
 
+SOC investigation reports generated from lab scenarios.
 
-\### `incident-reports/`
+screenshots
 
+Evidence showing endpoint telemetry, Wazuh alerts, detections, investigations, and automated responses.
 
+---
 
-Example SOC investigation reports generated from lab scenarios.
-
-
-
-\### `screenshots/`
-
-
-
-Evidence showing alerts, telemetry, detections, and automated response results.
-
-
-
-\---
-
-
-
-\# Skills Demonstrated
-
-
+# Skills Demonstrated
 
 This project is designed to demonstrate practical experience with:
 
+SOC Operations
 
+SIEM Monitoring
 
-\- Security Operations Center workflows
+Wazuh
 
-\- SIEM monitoring
+Sysmon
 
-\- Wazuh
+Windows Event Logs
 
-\- Windows endpoint monitoring
+Endpoint Monitoring
 
-\- Sysmon
+Alert Triage
 
-\- Windows Event Logs
+Incident Investigation
 
-\- Alert triage
+Threat Hunting
 
-\- Incident investigation
+Log Analysis
 
-\- Threat hunting
+Event Correlation
 
-\- Detection engineering
+Detection Engineering
 
-\- Log analysis
+MITRE ATT&CK
 
-\- Event correlation
+IOC Analysis
 
-\- MITRE ATT\&CK
+Python Security Automation
 
-\- IOC analysis
+Wazuh Active Response
 
-\- Python security automation
+Automated Incident Response
 
-\- Wazuh Active Response
+Security Documentation
 
-\- Automated incident response
+---
 
-\- SOC documentation
-
-
-
-\---
-
-
-
-\# Current Project Status
-
-
+# Project Progress
 
 | Phase | Status |
-
 |---|---|
-
 | Wazuh Server Deployment | Completed |
-
 | Windows 11 Agent Integration | Completed |
-
 | Sysmon Installation | Completed |
-
-| Sysmon → Wazuh Integration | Completed |
-
+| Sysmon to Wazuh Integration | Completed |
 | SOC-Focused Sysmon Configuration | Completed |
-
 | Wazuh Telemetry Validation | Completed |
-
 | Kali Linux Preparation | In Progress |
-
-| Attack Simulations | Planned |
-
-| Custom Detection Rules | Planned |
-
-| MITRE ATT\&CK Mapping | Planned |
-
+| Controlled Attack Simulations | Planned |
+| Custom Wazuh Detection Rules | Planned |
+| MITRE ATT&CK Mapping | Planned |
 | Python SOC Automation | Planned |
-
 | IOC Enrichment | Planned |
-
 | Wazuh Active Response | Planned |
-
 | Automated Incident Reporting | Planned |
 
+---
 
+# Learning Outcome
 
-\---
+This project focuses on understanding the complete SOC lifecycle rather than simply installing and running security tools.
 
+For every detection scenario, the project will answer:
 
+```text
+What happened?
+      |
+Why was it detected?
+      |
+Which logs provide evidence?
+      |
+How should a SOC analyst investigate it?
+      |
+Which MITRE ATT&CK technique applies?
+      |
+How can the detection be improved?
+      |
+Which repetitive steps can be automated?
+      |
+How should the response be validated?
+```
 
-\# Learning Outcome
+---
 
+# Disclaimer
 
+This project is developed exclusively for cybersecurity education, defensive security research, and SOC engineering practice.
 
-This project focuses on understanding the complete SOC lifecycle rather than simply executing tools.
-
-
-
-For every detection scenario, the objective is to understand:
-
-
-
-\*\*What happened? → Why was it detected? → Which logs prove it? → How would a SOC analyst investigate it? → How can the detection be improved? → Which parts can safely be automated?\*\*
-
-
-
-\---
-
-
-
-\## Disclaimer
-
-
-
-This project is built exclusively for \*\*cybersecurity education, defensive security research, and SOC engineering practice\*\*.
-
-
-
-All security testing is performed against isolated virtual machines owned and controlled by the project author. No techniques demonstrated in this repository are intended for unauthorized systems.
-
+All security simulations are performed against isolated virtual machines owned and controlled by the project author.
