@@ -201,10 +201,16 @@ def extract_ioc_from_alert(alert_file):
             "Could not locate data.win.eventdata.sourceAddress in alert"
         )
 
+    mitre = alert.get("rule", {}).get("mitre", {})
+
     context = {
+        "timestamp": alert.get("timestamp"),
         "rule_id": alert.get("rule", {}).get("id"),
         "rule_level": alert.get("rule", {}).get("level"),
         "rule_description": alert.get("rule", {}).get("description"),
+        "mitre_ids": mitre.get("id", []),
+        "mitre_tactics": mitre.get("tactic", []),
+        "mitre_techniques": mitre.get("technique", []),
         "agent_id": alert.get("agent", {}).get("id"),
         "agent_name": alert.get("agent", {}).get("name"),
         "source_ip": source_ip,

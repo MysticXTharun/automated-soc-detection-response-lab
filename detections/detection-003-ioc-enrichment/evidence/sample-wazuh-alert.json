@@ -3,7 +3,18 @@
     "rule": {
         "id": "100111",
         "level": 10,
-        "description": "LAB: Repeated blocked TCP connections detected from Kali 192.168.130.141 - possible network reconnaissance"
+        "description": "LAB: Repeated blocked TCP connections detected from Kali 192.168.130.141 - possible network reconnaissance",
+        "mitre": {
+            "id": [
+                "T1046"
+            ],
+            "tactic": [
+                "Discovery"
+            ],
+            "technique": [
+                "Network Service Discovery"
+            ]
+        }
     },
     "agent": {
         "id": "001",
