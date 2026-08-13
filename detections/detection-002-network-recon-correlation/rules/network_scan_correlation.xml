@@ -1,0 +1,29 @@
+<group name="custom_network_recon,windows_firewall,">
+
+  <rule id="100110" level="3">
+    <if_sid>60104</if_sid>
+    <field name="win.system.eventID">^5157$</field>
+    <field name="win.eventdata.direction">^%%14592$</field>
+    <field name="win.eventdata.protocol">^6$</field>
+    <field name="win.eventdata.destAddress">^192\.168\.130\.130$</field>
+    <field name="win.eventdata.sourceAddress">^192\.168\.130\.141$</field>
+
+    <description>LAB: Blocked inbound TCP connection from Kali $(win.eventdata.sourceAddress) to Windows $(win.eventdata.destAddress):$(win.eventdata.destPort)</description>
+
+    <group>blocked_connection,network_activity,lab_detection,</group>
+  </rule>
+
+  <rule id="100111" level="10" frequency="3" timeframe="10">
+    <if_matched_sid>100110</if_matched_sid>
+    <same_field>win.eventdata.sourceAddress</same_field>
+
+    <description>LAB: Repeated blocked TCP connections detected from Kali $(win.eventdata.sourceAddress) - possible network reconnaissance</description>
+
+    <mitre>
+      <id>T1046</id>
+    </mitre>
+
+    <group>network_reconnaissance,correlation_detection,lab_detection,</group>
+  </rule>
+
+</group>
