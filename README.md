@@ -621,13 +621,18 @@ Security Documentation
 | Sysmon to Wazuh Integration | Completed |
 | SOC-Focused Sysmon Configuration | Completed |
 | Wazuh Telemetry Validation | Completed |
-| Kali Linux Preparation | In Progress |
-| Controlled Attack Simulations | Planned |
-| Custom Wazuh Detection Rules | Planned |
-| MITRE ATT&CK Mapping | Planned |
-| Python SOC Automation | Planned |
+| Kali Linux Preparation | Completed |
+| Controlled Attack Simulations | Completed |
+| Custom Wazuh Detection Rules | Completed |
+| MITRE ATT&CK Mapping | Completed |
+| Network Reconnaissance Detection | Completed |
+| Correlation Detection | Completed |
+| Windows Firewall Event Monitoring | Completed |
+| Python SOC Automation | Completed |
+| Wazuh Active Response | Completed |
+| Automated IP Containment | Completed |
+| Automatic IP Unblocking | Completed |
 | IOC Enrichment | Planned |
-| Wazuh Active Response | Planned |
 | Automated Incident Reporting | Planned |
 
 ---
