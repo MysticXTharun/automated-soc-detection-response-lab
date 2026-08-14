@@ -1,0 +1,10 @@
+{
+    "assets": {
+        "192.168.130.130": {
+            "hostname": "DESKTOP-D316EOG",
+            "asset_type": "Windows 11 Endpoint",
+            "criticality": "MEDIUM",
+            "business_context": "SOC lab monitored endpoint"
+        }
+    }
+}
