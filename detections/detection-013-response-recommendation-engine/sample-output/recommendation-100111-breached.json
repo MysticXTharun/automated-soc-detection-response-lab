@@ -1,0 +1,43 @@
+{
+    "recommendation_timestamp_utc": "2026-08-14T06:31:21.326941+00:00",
+    "incident_id": "INC-20260813-051403-8E6ED3A1",
+    "case_id": "CASE-20260814-035612-R100111",
+    "input_context": {
+        "risk_score": 75,
+        "risk_level": "CRITICAL",
+        "priority": "P2",
+        "case_status": "Contained - Analyst Review Required",
+        "asset_criticality": "HIGH",
+        "containment_status": "FAILED",
+        "sla_status": "BREACHED",
+        "alert_count": 0,
+        "duplicate_alerts": 0,
+        "mitre_techniques": []
+    },
+    "response_decision": {
+        "urgency": "IMMEDIATE",
+        "escalation_required": true,
+        "escalation_level": "Management Escalation"
+    },
+    "investigation_actions": [
+        "Review the originating security alert and validate the detection context",
+        "Review source and destination activity around the detection timestamp",
+        "Prioritize investigation because the affected asset has elevated business criticality",
+        "Document the SLA breach and prioritize immediate case review",
+        "Initiate full incident-response investigation for critical-risk activity"
+    ],
+    "containment_actions": [
+        "Perform manual containment immediately",
+        "Validate endpoint and network isolation controls",
+        "Confirm whether suspicious activity remains active after containment attempts"
+    ],
+    "evidence_collection_actions": [
+        "Preserve the original alert and enrichment results",
+        "Preserve triage, case-management, notification, SLA, and risk-scoring artifacts",
+        "Record analyst findings and response actions in the incident case"
+    ],
+    "closure_guidance": [
+        "Keep the case open until investigation, containment, and escalation requirements are completed"
+    ],
+    "analyst_summary": "IMMEDIATE response recommended. Management Escalation is required because incident sla has been breached."
+}

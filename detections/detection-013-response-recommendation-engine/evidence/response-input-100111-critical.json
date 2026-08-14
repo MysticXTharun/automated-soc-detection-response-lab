@@ -1,0 +1,29 @@
+﻿{
+    "incident_id":  "INC-20260813-051403-8E6ED3A1",
+    "case_id":  "CASE-20260814-035612-R100111",
+    "incident_context":  {
+                             "risk_score":  75,
+                             "risk_level":  "CRITICAL",
+                             "priority":  "P2",
+                             "case_status":  "Contained - Analyst Review Required"
+                         },
+    "detection_context":  {
+                              "rule_id":  "100111",
+                              "rule_level":  10
+                          },
+    "mitre_context":  null,
+    "asset_context":  {
+                          "hostname":  "DESKTOP-D316EOG",
+                          "criticality":  "HIGH"
+                      },
+    "containment":  {
+                        "status":  "FAILED",
+                        "response":  "Automated Windows Firewall containment",
+                        "automatic_recovery":  false
+                    },
+    "sla":  {
+                "status":  "AT_RISK",
+                "remaining_minutes":  30
+            },
+    "correlation":  null
+}

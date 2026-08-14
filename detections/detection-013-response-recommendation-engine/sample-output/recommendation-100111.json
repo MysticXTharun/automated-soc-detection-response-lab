@@ -1,0 +1,39 @@
+{
+    "recommendation_timestamp_utc": "2026-08-14T06:28:06.805097+00:00",
+    "incident_id": "INC-20260813-051403-8E6ED3A1",
+    "case_id": "CASE-20260814-035612-R100111",
+    "input_context": {
+        "risk_score": 40,
+        "risk_level": "MEDIUM",
+        "priority": "P3",
+        "case_status": "Contained - Analyst Review Required",
+        "asset_criticality": "MEDIUM",
+        "containment_status": "SUCCESS",
+        "sla_status": "WITHIN_SLA",
+        "alert_count": 0,
+        "duplicate_alerts": 0,
+        "mitre_techniques": []
+    },
+    "response_decision": {
+        "urgency": "STANDARD",
+        "escalation_required": false,
+        "escalation_level": "No Immediate Escalation"
+    },
+    "investigation_actions": [
+        "Review the originating security alert and validate the detection context",
+        "Review source and destination activity around the detection timestamp"
+    ],
+    "containment_actions": [
+        "Validate that automated containment remains effective",
+        "Confirm that no additional suspicious activity is observed after containment"
+    ],
+    "evidence_collection_actions": [
+        "Preserve the original alert and enrichment results",
+        "Preserve triage, case-management, notification, SLA, and risk-scoring artifacts",
+        "Record analyst findings and response actions in the incident case"
+    ],
+    "closure_guidance": [
+        "Consider closure only after analyst validation confirms no additional suspicious activity"
+    ],
+    "analyst_summary": "STANDARD analyst review recommended. Continue investigation and validate containment before considering case closure."
+}
