@@ -632,8 +632,8 @@ Security Documentation
 | Wazuh Active Response | Completed |
 | Automated IP Containment | Completed |
 | Automatic IP Unblocking | Completed |
-| IOC Enrichment | Planned |
-| Automated Incident Reporting | Planned |
+| IOC Enrichment | Completed |
+| Automated Incident Reporting | Completed |
 
 ---
 
