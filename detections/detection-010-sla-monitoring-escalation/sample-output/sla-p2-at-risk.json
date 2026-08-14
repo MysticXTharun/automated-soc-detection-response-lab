@@ -1,0 +1,20 @@
+{
+    "evaluation_timestamp_utc": "2026-08-14T11:26:12.686158+00:00",
+    "case_id": "CASE-20260814-035612-R100111",
+    "priority": "P2",
+    "case_status": "Contained - Analyst Review Required",
+    "assigned_queue": "SOC Standard Investigation Queue",
+    "sla": {
+        "sla_hours": 8,
+        "created_at_utc": "2026-08-14T03:56:12.686158+00:00",
+        "due_at_utc": "2026-08-14T11:56:12.686158+00:00",
+        "status": "AT_RISK",
+        "case_age_minutes": 450.0,
+        "remaining_minutes": 30.0
+    },
+    "escalation": {
+        "required": true,
+        "level": "Immediate SOC Lead Escalation",
+        "reason": "Case is approaching the SLA deadline"
+    }
+}
