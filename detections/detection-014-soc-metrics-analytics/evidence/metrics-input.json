@@ -1,0 +1,60 @@
+﻿{
+    "dataset":  "SOC Automation Lab - Detection 014",
+    "deduplication":  {
+                          "alerts_processed":  4,
+                          "incidents_created":  3,
+                          "correlated_alerts":  1
+                      },
+    "sla_evaluations":  [
+                            {
+                                "scenario":  "Within SLA",
+                                "status":  "WITHIN_SLA",
+                                "escalation_required":  false
+                            },
+                            {
+                                "scenario":  "At Risk",
+                                "status":  "AT_RISK",
+                                "escalation_required":  true
+                            },
+                            {
+                                "scenario":  "Breached",
+                                "status":  "BREACHED",
+                                "escalation_required":  true
+                            }
+                        ],
+    "risk_assessments":  [
+                             {
+                                 "scenario":  "Baseline",
+                                 "score":  40,
+                                 "level":  "MEDIUM"
+                             },
+                             {
+                                 "scenario":  "Deteriorated",
+                                 "score":  75,
+                                 "level":  "CRITICAL"
+                             }
+                         ],
+    "response_decisions":  [
+                               {
+                                   "scenario":  "Baseline",
+                                   "urgency":  "STANDARD",
+                                   "escalation_required":  false
+                               },
+                               {
+                                   "scenario":  "Critical",
+                                   "urgency":  "IMMEDIATE",
+                                   "escalation_required":  true
+                               },
+                               {
+                                   "scenario":  "Breached",
+                                   "urgency":  "IMMEDIATE",
+                                   "escalation_required":  true
+                               }
+                           ],
+    "timeline":  {
+                     "event_count":  5,
+                     "total_timeline_duration_minutes":  1465.49,
+                     "timeline_start_utc":  "2026-08-13T05:14:03.915000+00:00",
+                     "timeline_end_utc":  "2026-08-14T05:39:33.504577+00:00"
+                 }
+}

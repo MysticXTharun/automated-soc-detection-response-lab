@@ -1,0 +1,43 @@
+{
+    "generated_at_utc": "2026-08-14T06:44:31.490569+00:00",
+    "dataset": "SOC Automation Lab - Detection 014",
+    "alert_metrics": {
+        "alerts_processed": 4,
+        "incidents_created": 3,
+        "correlated_alerts": 1,
+        "deduplication_rate_percent": 25.0,
+        "incident_creation_rate_percent": 75.0
+    },
+    "sla_metrics": {
+        "evaluations": 3,
+        "within_sla": 1,
+        "at_risk": 1,
+        "breached": 1,
+        "sla_compliance_rate_percent": 33.33,
+        "sla_breach_rate_percent": 33.33
+    },
+    "risk_metrics": {
+        "assessments": 2,
+        "average_risk_score": 57.5,
+        "highest_risk_score": 75.0,
+        "risk_level_distribution": {
+            "MEDIUM": 1,
+            "CRITICAL": 1
+        }
+    },
+    "response_metrics": {
+        "decisions": 3,
+        "escalated_decisions": 2,
+        "escalation_rate_percent": 66.67,
+        "urgency_distribution": {
+            "STANDARD": 1,
+            "IMMEDIATE": 2
+        }
+    },
+    "timeline_metrics": {
+        "event_count": 5,
+        "total_timeline_duration_minutes": 1465.49,
+        "timeline_start_utc": "2026-08-13T05:14:03.915000+00:00",
+        "timeline_end_utc": "2026-08-14T05:39:33.504577+00:00"
+    }
+}
