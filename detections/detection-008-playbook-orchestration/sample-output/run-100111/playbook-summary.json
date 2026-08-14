@@ -1,0 +1,19 @@
+{
+    "playbook": "Automated SOC Detection & Response",
+    "execution_timestamp_utc": "2026-08-14T04:23:03.148867+00:00",
+    "status": "COMPLETED",
+    "rule_id": "100111",
+    "priority": "P3",
+    "case_id": "CASE-20260814-042303-R100111",
+    "case_status": "Contained - Analyst Review Required",
+    "notification_level": "STANDARD",
+    "escalation_required": false,
+    "escalation_level": "No Immediate Escalation",
+    "artifacts": {
+        "enrichment": "detections\\detection-008-playbook-orchestration\\sample-output\\run-100111\\01-enrichment.json",
+        "triage": "detections\\detection-008-playbook-orchestration\\sample-output\\run-100111\\02-triage.json",
+        "incident_report": "detections\\detection-008-playbook-orchestration\\sample-output\\run-100111\\03-incident-report.md",
+        "case": "detections\\detection-008-playbook-orchestration\\sample-output\\run-100111\\04-case.json",
+        "notification": "detections\\detection-008-playbook-orchestration\\sample-output\\run-100111\\05-notification.json"
+    }
+}

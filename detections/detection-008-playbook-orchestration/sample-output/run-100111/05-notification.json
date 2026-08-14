@@ -1,0 +1,32 @@
+{
+    "notification_timestamp_utc": "2026-08-14T04:23:03.128034+00:00",
+    "case_id": "CASE-20260814-042303-R100111",
+    "notification": {
+        "level": "STANDARD",
+        "recipients": [
+            "SOC Analyst Queue"
+        ],
+        "message": "SOC Case CASE-20260814-042303-R100111 is currently classified as P3. Case status: Contained - Analyst Review Required. Assigned queue: SOC Standard Investigation Queue. Containment status: SUCCESS. SLA status: WITHIN_SLA. Escalation: No Immediate Escalation."
+    },
+    "escalation": {
+        "required": false,
+        "level": "No Immediate Escalation",
+        "reason": "Current case context does not require escalation"
+    },
+    "case_context": {
+        "priority": "P3",
+        "case_status": "Contained - Analyst Review Required",
+        "assigned_queue": "SOC Standard Investigation Queue",
+        "sla_status": "WITHIN_SLA",
+        "containment_status": "SUCCESS"
+    },
+    "detection_context": {
+        "rule_id": "100111",
+        "source_ip": "192.168.130.141",
+        "destination_ip": "192.168.130.130",
+        "destination_port": "445",
+        "mitre_ids": [
+            "T1046"
+        ]
+    }
+}

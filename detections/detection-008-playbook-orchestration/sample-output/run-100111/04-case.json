@@ -1,0 +1,80 @@
+{
+    "case_id": "CASE-20260814-042303-R100111",
+    "case_status": "Contained - Analyst Review Required",
+    "priority": "P3",
+    "assigned_queue": "SOC Standard Investigation Queue",
+    "assignment": {
+        "owner": "UNASSIGNED",
+        "state": "Awaiting SOC Analyst Assignment"
+    },
+    "sla": {
+        "sla_hours": 8,
+        "created_at_utc": "2026-08-14T04:23:03.029075+00:00",
+        "due_at_utc": "2026-08-14T12:23:03.029075+00:00",
+        "status": "WITHIN_SLA",
+        "case_age_minutes": 0.0,
+        "remaining_minutes": 480.0
+    },
+    "closure_recommendation": "Eligible for closure after analyst validation confirms no additional suspicious activity",
+    "detection": {
+        "timestamp": "2026-08-13T05:14:03.915+0000",
+        "rule_id": "100111",
+        "rule_level": 10,
+        "rule_description": "LAB: Repeated blocked TCP connections detected from Kali 192.168.130.141 - possible network reconnaissance",
+        "source_ip": "192.168.130.141",
+        "destination_ip": "192.168.130.130",
+        "destination_port": "445",
+        "mitre_ids": [
+            "T1046"
+        ],
+        "mitre_tactics": [
+            "Discovery"
+        ],
+        "mitre_techniques": [
+            "Network Service Discovery"
+        ]
+    },
+    "asset_context": {
+        "hostname": "DESKTOP-D316EOG",
+        "asset_type": "Windows 11 Endpoint",
+        "criticality": "MEDIUM",
+        "business_context": "SOC lab monitored endpoint"
+    },
+    "ioc_assessment": {
+        "verdict": "INTERNAL",
+        "risk_level": "INFO",
+        "reason": "Private or non-public IP; public reputation lookup not applicable"
+    },
+    "containment": {
+        "response": "Automated Windows Firewall containment",
+        "status": "SUCCESS",
+        "automatic_recovery": true
+    },
+    "triage": {
+        "priority": "P3",
+        "recommended_action": "Standard SOC analyst review and validate related activity"
+    },
+    "investigation_summary": "Rule 100111 detected activity from 192.168.130.141 targeting 192.168.130.130:445. The alert was triaged as P3. Containment status is SUCCESS.",
+    "timeline": [
+        {
+            "timestamp_utc": "2026-08-13T05:14:03.915+0000",
+            "event": "Security alert detected",
+            "details": "Wazuh Rule 100111 detected activity from 192.168.130.141 to 192.168.130.130:445"
+        },
+        {
+            "timestamp_utc": "2026-08-14T04:23:02.849764+00:00",
+            "event": "Automated triage completed",
+            "details": "Priority assigned: P3. Recommended action: Standard SOC analyst review and validate related activity"
+        },
+        {
+            "timestamp_utc": "2026-08-14T04:23:03.029114+00:00",
+            "event": "Containment status evaluated",
+            "details": "Containment response: Automated Windows Firewall containment. Status: SUCCESS"
+        },
+        {
+            "timestamp_utc": "2026-08-14T04:23:03.029114+00:00",
+            "event": "SOC case created",
+            "details": "Automated case-management workflow created the incident case for analyst tracking."
+        }
+    ]
+}

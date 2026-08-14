@@ -1,0 +1,37 @@
+{
+    "input_type": "wazuh_alert",
+    "alert_context": {
+        "timestamp": "2026-08-13T05:14:03.915+0000",
+        "rule_id": "100111",
+        "rule_level": 10,
+        "rule_description": "LAB: Repeated blocked TCP connections detected from Kali 192.168.130.141 - possible network reconnaissance",
+        "mitre_ids": [
+            "T1046"
+        ],
+        "mitre_tactics": [
+            "Discovery"
+        ],
+        "mitre_techniques": [
+            "Network Service Discovery"
+        ],
+        "agent_id": "001",
+        "agent_name": "DESKTOP-D316EOG",
+        "source_ip": "192.168.130.141",
+        "destination_ip": "192.168.130.130",
+        "destination_port": "445"
+    },
+    "enrichment": {
+        "ioc": "192.168.130.141",
+        "ioc_type": "ip",
+        "timestamp_utc": "2026-08-14T04:23:02.744846+00:00",
+        "classification": "Private IP",
+        "reverse_dns": "192.168.130.141",
+        "public_threat_intel_lookup": false,
+        "threat_intelligence": null,
+        "soc_assessment": {
+            "verdict": "INTERNAL",
+            "risk_level": "INFO",
+            "reason": "Private or non-public IP; public reputation lookup not applicable"
+        }
+    }
+}
