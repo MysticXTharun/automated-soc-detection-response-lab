@@ -1,4 +1,4 @@
-\# Detection 008 - Automated SOC Playbook Orchestration
+﻿\# Detection 008 - Automated SOC Playbook Orchestration
 
 
 
@@ -44,39 +44,39 @@ This transforms the project from a collection of separate automation scripts int
 
 Wazuh Alert
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 IOC Enrichment
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 Automated Alert Triage
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 Incident Report Generation
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 SOC Case Creation
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 Notification and Escalation
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 Final Playbook Summary
 
@@ -368,39 +368,39 @@ Operational flow:
 
 Wazuh Alert
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 Enrichment
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 P3 Triage
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 Incident Report
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 Contained SOC Case
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 STANDARD Notification
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 No Immediate Escalation
 
@@ -466,39 +466,39 @@ Operational flow:
 
 Wazuh Alert
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 Enrichment
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 P2 Triage
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 Incident Report
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 Open SOC Case
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 HIGH Notification
 
-&#x20;   |
+   |
 
-&#x20;   v
+   v
 
 L2 Escalation
 
@@ -652,45 +652,45 @@ the orchestrator performs the complete sequence automatically.
 
 Alert
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Enrich
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Triage
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Report
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Create Case
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Notify
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Escalate
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Summary
 
@@ -734,41 +734,41 @@ The orchestrator only passes structured files and command-line arguments between
 
 sample-output/
 
-&#x20;   run-100111/
+   run-100111/
 
-&#x20;       01-enrichment.json
+       01-enrichment.json
 
-&#x20;       02-triage.json
+       02-triage.json
 
-&#x20;       03-incident-report.md
+       03-incident-report.md
 
-&#x20;       04-case.json
+       04-case.json
 
-&#x20;       05-notification.json
+       05-notification.json
 
-&#x20;       playbook-summary.json
+       playbook-summary.json
 
 
 
-&#x20;   run-100111-failed/
+   run-100111-failed/
 
-&#x20;       01-enrichment.json
+       01-enrichment.json
 
-&#x20;       02-triage.json
+       02-triage.json
 
-&#x20;       03-incident-report.md
+       03-incident-report.md
 
-&#x20;       04-case.json
+       04-case.json
 
-&#x20;       05-notification.json
+       05-notification.json
 
-&#x20;       playbook-summary.json
+       playbook-summary.json
 
 
 
 scripts/
 
-&#x20;   playbook\_orchestrator.py
+   playbook\_orchestrator.py
 
 ```
 
@@ -868,45 +868,45 @@ Detection 008 demonstrates:
 
 Detect
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Enrich
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Triage
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Report
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Create Case
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Notify
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Escalate
 
-&#x20; |
+ |
 
-&#x20; v
+ v
 
 Summarize
 
@@ -915,4 +915,5 @@ Summarize
 
 
 This turns the individual automation components into an end-to-end SOC playbook orchestration workflow.
+
 
