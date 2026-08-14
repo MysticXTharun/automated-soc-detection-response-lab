@@ -1,0 +1,110 @@
+{
+    "correlation_window_minutes": 5,
+    "alerts_processed": 4,
+    "incidents_created": 3,
+    "duplicates_correlated": 1,
+    "results": [
+        {
+            "timestamp": "2026-08-13T05:14:03.915+00:00",
+            "rule_id": "100111",
+            "source_ip": "192.168.130.141",
+            "destination_ip": "192.168.130.130",
+            "destination_port": "445",
+            "correlation_key": "8e6ed3a1e6744a84",
+            "decision": "NEW",
+            "incident_id": "INC-20260813-051403-8E6ED3A1",
+            "time_since_previous_alert_minutes": null,
+            "reason": "No matching incident found within 5-minute correlation window"
+        },
+        {
+            "timestamp": "2026-08-13T05:17:41.250+00:00",
+            "rule_id": "100111",
+            "source_ip": "192.168.130.141",
+            "destination_ip": "192.168.130.130",
+            "destination_port": "445",
+            "correlation_key": "8e6ed3a1e6744a84",
+            "decision": "CORRELATED",
+            "incident_id": "INC-20260813-051403-8E6ED3A1",
+            "time_since_previous_alert_minutes": 3.62,
+            "reason": "Matching alert observed within 5-minute correlation window"
+        },
+        {
+            "timestamp": "2026-08-13T05:19:12.500+00:00",
+            "rule_id": "100111",
+            "source_ip": "192.168.130.150",
+            "destination_ip": "192.168.130.130",
+            "destination_port": "445",
+            "correlation_key": "7fb01649fd4977c6",
+            "decision": "NEW",
+            "incident_id": "INC-20260813-051912-7FB01649",
+            "time_since_previous_alert_minutes": null,
+            "reason": "No matching incident found within 5-minute correlation window"
+        },
+        {
+            "timestamp": "2026-08-13T05:30:00.000+00:00",
+            "rule_id": "100111",
+            "source_ip": "192.168.130.141",
+            "destination_ip": "192.168.130.130",
+            "destination_port": "445",
+            "correlation_key": "8e6ed3a1e6744a84",
+            "decision": "NEW",
+            "incident_id": "INC-20260813-053000-8E6ED3A1",
+            "time_since_previous_alert_minutes": null,
+            "reason": "No matching incident found within 5-minute correlation window"
+        }
+    ],
+    "incidents": [
+        {
+            "incident_id": "INC-20260813-051403-8E6ED3A1",
+            "correlation_key": "8e6ed3a1e6744a84",
+            "rule_id": "100111",
+            "source_ip": "192.168.130.141",
+            "destination_ip": "192.168.130.130",
+            "destination_port": "445",
+            "mitre_ids": [
+                "T1046"
+            ],
+            "first_seen": "2026-08-13T05:14:03.915+00:00",
+            "last_seen": "2026-08-13T05:17:41.250+00:00",
+            "alert_count": 2,
+            "related_alert_timestamps": [
+                "2026-08-13T05:14:03.915+00:00",
+                "2026-08-13T05:17:41.250+00:00"
+            ]
+        },
+        {
+            "incident_id": "INC-20260813-051912-7FB01649",
+            "correlation_key": "7fb01649fd4977c6",
+            "rule_id": "100111",
+            "source_ip": "192.168.130.150",
+            "destination_ip": "192.168.130.130",
+            "destination_port": "445",
+            "mitre_ids": [
+                "T1046"
+            ],
+            "first_seen": "2026-08-13T05:19:12.500+00:00",
+            "last_seen": "2026-08-13T05:19:12.500+00:00",
+            "alert_count": 1,
+            "related_alert_timestamps": [
+                "2026-08-13T05:19:12.500+00:00"
+            ]
+        },
+        {
+            "incident_id": "INC-20260813-053000-8E6ED3A1",
+            "correlation_key": "8e6ed3a1e6744a84",
+            "rule_id": "100111",
+            "source_ip": "192.168.130.141",
+            "destination_ip": "192.168.130.130",
+            "destination_port": "445",
+            "mitre_ids": [
+                "T1046"
+            ],
+            "first_seen": "2026-08-13T05:30:00.000+00:00",
+            "last_seen": "2026-08-13T05:30:00.000+00:00",
+            "alert_count": 1,
+            "related_alert_timestamps": [
+                "2026-08-13T05:30:00.000+00:00"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "timestamp": "2026-08-13T05:19:12.500+00:00",
+    "rule_id": "100111",
+    "rule_level": 10,
+    "rule_description": "LAB: Repeated blocked TCP connections detected - possible network reconnaissance",
+    "source_ip": "192.168.130.150",
+    "destination_ip": "192.168.130.130",
+    "destination_port": "445",
+    "mitre_ids": [
+        "T1046"
+    ],
+    "mitre_tactics": [
+        "Discovery"
+    ],
+    "mitre_techniques": [
+        "Network Service Discovery"
+    ]
+}
