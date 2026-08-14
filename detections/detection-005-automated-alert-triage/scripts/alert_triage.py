@@ -240,6 +240,7 @@ def triage_alert(data, asset_data, response_data):
         ).isoformat(),
 
         "alert": {
+            "timestamp": alert.get("timestamp"),
             "rule_id": alert.get("rule_id"),
             "rule_level": rule_level,
             "rule_description": alert.get(
