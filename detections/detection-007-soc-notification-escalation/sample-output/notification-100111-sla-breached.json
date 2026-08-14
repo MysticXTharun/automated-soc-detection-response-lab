@@ -1,0 +1,34 @@
+{
+    "notification_timestamp_utc": "2026-08-14T04:15:55.909549+00:00",
+    "case_id": "CASE-20260814-035612-R100111",
+    "notification": {
+        "level": "CRITICAL",
+        "recipients": [
+            "SOC L2/L3",
+            "SOC Manager",
+            "Incident Response Team"
+        ],
+        "message": "SOC Case CASE-20260814-035612-R100111 is currently classified as P3. Case status: Contained - Analyst Review Required. Assigned queue: SOC Standard Investigation Queue. Containment status: SUCCESS. SLA status: BREACHED. Escalation: Management Escalation."
+    },
+    "escalation": {
+        "required": true,
+        "level": "Management Escalation",
+        "reason": "Case SLA has been breached"
+    },
+    "case_context": {
+        "priority": "P3",
+        "case_status": "Contained - Analyst Review Required",
+        "assigned_queue": "SOC Standard Investigation Queue",
+        "sla_status": "BREACHED",
+        "containment_status": "SUCCESS"
+    },
+    "detection_context": {
+        "rule_id": "100111",
+        "source_ip": "192.168.130.141",
+        "destination_ip": "192.168.130.130",
+        "destination_port": "445",
+        "mitre_ids": [
+            "T1046"
+        ]
+    }
+}

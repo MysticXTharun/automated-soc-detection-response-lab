@@ -1,0 +1,33 @@
+{
+    "notification_timestamp_utc": "2026-08-14T04:13:46.485341+00:00",
+    "case_id": "CASE-20260814-035612-R100111",
+    "notification": {
+        "level": "HIGH",
+        "recipients": [
+            "SOC L2",
+            "SOC Shift Lead"
+        ],
+        "message": "SOC Case CASE-20260814-035612-R100111 is currently classified as P2. Case status: Open - Containment Required. Assigned queue: SOC High Priority Queue. Containment status: FAILED. SLA status: WITHIN_SLA. Escalation: L2 Escalation."
+    },
+    "escalation": {
+        "required": true,
+        "level": "L2 Escalation",
+        "reason": "Automated containment failed"
+    },
+    "case_context": {
+        "priority": "P2",
+        "case_status": "Open - Containment Required",
+        "assigned_queue": "SOC High Priority Queue",
+        "sla_status": "WITHIN_SLA",
+        "containment_status": "FAILED"
+    },
+    "detection_context": {
+        "rule_id": "100111",
+        "source_ip": "192.168.130.141",
+        "destination_ip": "192.168.130.130",
+        "destination_port": "445",
+        "mitre_ids": [
+            "T1046"
+        ]
+    }
+}
