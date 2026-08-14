@@ -1,0 +1,45 @@
+{
+    "generated_at_utc": "2026-08-14T06:49:10.264288+00:00",
+    "report_name": "Automated SOC Executive Incident Report",
+    "executive_status": "CRITICAL ATTENTION REQUIRED",
+    "incident_overview": {
+        "case_id": "CASE-20260814-035612-R100111",
+        "case_status": "Contained - Analyst Review Required",
+        "priority": "P3",
+        "assigned_queue": "SOC Standard Investigation Queue",
+        "risk_score": 75,
+        "risk_level": "CRITICAL",
+        "sla_status": "BREACHED",
+        "response_urgency": "IMMEDIATE"
+    },
+    "escalation_summary": {
+        "required": true,
+        "level": "Management Escalation",
+        "sla_escalation_required": true,
+        "sla_escalation_level": "Management Escalation",
+        "reason": "Case SLA has been breached"
+    },
+    "correlation_summary": {
+        "alerts_processed": 4,
+        "new_incidents": 3,
+        "correlated_alerts": 1
+    },
+    "soc_metrics": {
+        "alerts_processed": 4,
+        "incidents_created": 3,
+        "deduplication_rate_percent": 25.0,
+        "sla_compliance_rate_percent": 33.33,
+        "sla_breach_rate_percent": 33.33,
+        "average_risk_score": 57.5,
+        "highest_risk_score": 75.0,
+        "escalation_rate_percent": 66.67
+    },
+    "timeline_summary": {
+        "event_count": 5,
+        "timeline_start_utc": "2026-08-13T05:14:03.915000+00:00",
+        "timeline_end_utc": "2026-08-14T05:39:33.504577+00:00",
+        "observed_duration_minutes": 1465.49
+    },
+    "management_summary": "Incident risk is CRITICAL with a score of 75. SLA state is BREACHED. Response urgency is IMMEDIATE. Escalation required: True. Current escalation level: Management Escalation.",
+    "interpretation_note": "Metrics are generated from controlled SOC lab scenarios and demonstrate reporting logic rather than production SOC performance."
+}

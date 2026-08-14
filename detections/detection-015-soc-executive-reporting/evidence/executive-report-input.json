@@ -1,0 +1,402 @@
+﻿{
+    "report_name":  "Automated SOC Executive Incident Report",
+    "lab":  "Automated SOC Detection \u0026 Response Lab",
+    "source_context":  {
+                           "case_management":  {
+                                                   "case_id":  "CASE-20260814-035612-R100111",
+                                                   "case_status":  "Contained - Analyst Review Required",
+                                                   "priority":  "P3",
+                                                   "assigned_queue":  "SOC Standard Investigation Queue",
+                                                   "assignment":  {
+                                                                      "owner":  "UNASSIGNED",
+                                                                      "state":  "Awaiting SOC Analyst Assignment"
+                                                                  },
+                                                   "sla":  {
+                                                               "sla_hours":  8,
+                                                               "created_at_utc":  "2026-08-14T03:56:12.686158+00:00",
+                                                               "due_at_utc":  "2026-08-14T11:56:12.686158+00:00",
+                                                               "status":  "WITHIN_SLA",
+                                                               "case_age_minutes":  0.0,
+                                                               "remaining_minutes":  480.0
+                                                           },
+                                                   "closure_recommendation":  "Eligible for closure after analyst validation confirms no additional suspicious activity",
+                                                   "detection":  {
+                                                                     "timestamp":  "2026-08-13T05:14:03.915+0000",
+                                                                     "rule_id":  "100111",
+                                                                     "rule_level":  10,
+                                                                     "rule_description":  "LAB: Repeated blocked TCP connections detected from Kali 192.168.130.141 - possible network reconnaissance",
+                                                                     "source_ip":  "192.168.130.141",
+                                                                     "destination_ip":  "192.168.130.130",
+                                                                     "destination_port":  "445",
+                                                                     "mitre_ids":  [
+                                                                                       "T1046"
+                                                                                   ],
+                                                                     "mitre_tactics":  [
+                                                                                           "Discovery"
+                                                                                       ],
+                                                                     "mitre_techniques":  [
+                                                                                              "Network Service Discovery"
+                                                                                          ]
+                                                                 },
+                                                   "asset_context":  {
+                                                                         "hostname":  "DESKTOP-D316EOG",
+                                                                         "asset_type":  "Windows 11 Endpoint",
+                                                                         "criticality":  "MEDIUM",
+                                                                         "business_context":  "SOC lab monitored endpoint"
+                                                                     },
+                                                   "ioc_assessment":  {
+                                                                          "verdict":  "INTERNAL",
+                                                                          "risk_level":  "INFO",
+                                                                          "reason":  "Private or non-public IP; public reputation lookup not applicable"
+                                                                      },
+                                                   "containment":  {
+                                                                       "response":  "Automated Windows Firewall containment",
+                                                                       "status":  "SUCCESS",
+                                                                       "automatic_recovery":  true
+                                                                   },
+                                                   "triage":  {
+                                                                  "priority":  "P3",
+                                                                  "recommended_action":  "Standard SOC analyst review and validate related activity"
+                                                              },
+                                                   "investigation_summary":  "Rule 100111 detected activity from 192.168.130.141 targeting 192.168.130.130:445. The alert was triaged as P3. Containment status is SUCCESS.",
+                                                   "timeline":  [
+                                                                    {
+                                                                        "timestamp_utc":  "2026-08-13T05:14:03.915+0000",
+                                                                        "event":  "Security alert detected",
+                                                                        "details":  "Wazuh Rule 100111 detected activity from 192.168.130.141 to 192.168.130.130:445"
+                                                                    },
+                                                                    {
+                                                                        "timestamp_utc":  "2026-08-14T03:39:46.338412+00:00",
+                                                                        "event":  "Automated triage completed",
+                                                                        "details":  "Priority assigned: P3. Recommended action: Standard SOC analyst review and validate related activity"
+                                                                    },
+                                                                    {
+                                                                        "timestamp_utc":  "2026-08-14T03:56:12.687627+00:00",
+                                                                        "event":  "Containment status evaluated",
+                                                                        "details":  "Containment response: Automated Windows Firewall containment. Status: SUCCESS"
+                                                                    },
+                                                                    {
+                                                                        "timestamp_utc":  "2026-08-14T03:56:12.687627+00:00",
+                                                                        "event":  "SOC case created",
+                                                                        "details":  "Automated case-management workflow created the incident case for analyst tracking."
+                                                                    }
+                                                                ]
+                                               },
+                           "incident_deduplication":  {
+                                                          "correlation_window_minutes":  5,
+                                                          "alerts_processed":  4,
+                                                          "incidents_created":  3,
+                                                          "duplicates_correlated":  1,
+                                                          "results":  [
+                                                                          {
+                                                                              "timestamp":  "2026-08-13T05:14:03.915+00:00",
+                                                                              "rule_id":  "100111",
+                                                                              "source_ip":  "192.168.130.141",
+                                                                              "destination_ip":  "192.168.130.130",
+                                                                              "destination_port":  "445",
+                                                                              "correlation_key":  "8e6ed3a1e6744a84",
+                                                                              "decision":  "NEW",
+                                                                              "incident_id":  "INC-20260813-051403-8E6ED3A1",
+                                                                              "time_since_previous_alert_minutes":  null,
+                                                                              "reason":  "No matching incident found within 5-minute correlation window"
+                                                                          },
+                                                                          {
+                                                                              "timestamp":  "2026-08-13T05:17:41.250+00:00",
+                                                                              "rule_id":  "100111",
+                                                                              "source_ip":  "192.168.130.141",
+                                                                              "destination_ip":  "192.168.130.130",
+                                                                              "destination_port":  "445",
+                                                                              "correlation_key":  "8e6ed3a1e6744a84",
+                                                                              "decision":  "CORRELATED",
+                                                                              "incident_id":  "INC-20260813-051403-8E6ED3A1",
+                                                                              "time_since_previous_alert_minutes":  3.62,
+                                                                              "reason":  "Matching alert observed within 5-minute correlation window"
+                                                                          },
+                                                                          {
+                                                                              "timestamp":  "2026-08-13T05:19:12.500+00:00",
+                                                                              "rule_id":  "100111",
+                                                                              "source_ip":  "192.168.130.150",
+                                                                              "destination_ip":  "192.168.130.130",
+                                                                              "destination_port":  "445",
+                                                                              "correlation_key":  "7fb01649fd4977c6",
+                                                                              "decision":  "NEW",
+                                                                              "incident_id":  "INC-20260813-051912-7FB01649",
+                                                                              "time_since_previous_alert_minutes":  null,
+                                                                              "reason":  "No matching incident found within 5-minute correlation window"
+                                                                          },
+                                                                          {
+                                                                              "timestamp":  "2026-08-13T05:30:00.000+00:00",
+                                                                              "rule_id":  "100111",
+                                                                              "source_ip":  "192.168.130.141",
+                                                                              "destination_ip":  "192.168.130.130",
+                                                                              "destination_port":  "445",
+                                                                              "correlation_key":  "8e6ed3a1e6744a84",
+                                                                              "decision":  "NEW",
+                                                                              "incident_id":  "INC-20260813-053000-8E6ED3A1",
+                                                                              "time_since_previous_alert_minutes":  null,
+                                                                              "reason":  "No matching incident found within 5-minute correlation window"
+                                                                          }
+                                                                      ],
+                                                          "incidents":  [
+                                                                            {
+                                                                                "incident_id":  "INC-20260813-051403-8E6ED3A1",
+                                                                                "correlation_key":  "8e6ed3a1e6744a84",
+                                                                                "rule_id":  "100111",
+                                                                                "source_ip":  "192.168.130.141",
+                                                                                "destination_ip":  "192.168.130.130",
+                                                                                "destination_port":  "445",
+                                                                                "mitre_ids":  [
+                                                                                                  "T1046"
+                                                                                              ],
+                                                                                "first_seen":  "2026-08-13T05:14:03.915+00:00",
+                                                                                "last_seen":  "2026-08-13T05:17:41.250+00:00",
+                                                                                "alert_count":  2,
+                                                                                "related_alert_timestamps":  [
+                                                                                                                 "2026-08-13T05:14:03.915+00:00",
+                                                                                                                 "2026-08-13T05:17:41.250+00:00"
+                                                                                                             ]
+                                                                            },
+                                                                            {
+                                                                                "incident_id":  "INC-20260813-051912-7FB01649",
+                                                                                "correlation_key":  "7fb01649fd4977c6",
+                                                                                "rule_id":  "100111",
+                                                                                "source_ip":  "192.168.130.150",
+                                                                                "destination_ip":  "192.168.130.130",
+                                                                                "destination_port":  "445",
+                                                                                "mitre_ids":  [
+                                                                                                  "T1046"
+                                                                                              ],
+                                                                                "first_seen":  "2026-08-13T05:19:12.500+00:00",
+                                                                                "last_seen":  "2026-08-13T05:19:12.500+00:00",
+                                                                                "alert_count":  1,
+                                                                                "related_alert_timestamps":  [
+                                                                                                                 "2026-08-13T05:19:12.500+00:00"
+                                                                                                             ]
+                                                                            },
+                                                                            {
+                                                                                "incident_id":  "INC-20260813-053000-8E6ED3A1",
+                                                                                "correlation_key":  "8e6ed3a1e6744a84",
+                                                                                "rule_id":  "100111",
+                                                                                "source_ip":  "192.168.130.141",
+                                                                                "destination_ip":  "192.168.130.130",
+                                                                                "destination_port":  "445",
+                                                                                "mitre_ids":  [
+                                                                                                  "T1046"
+                                                                                              ],
+                                                                                "first_seen":  "2026-08-13T05:30:00.000+00:00",
+                                                                                "last_seen":  "2026-08-13T05:30:00.000+00:00",
+                                                                                "alert_count":  1,
+                                                                                "related_alert_timestamps":  [
+                                                                                                                 "2026-08-13T05:30:00.000+00:00"
+                                                                                                             ]
+                                                                            }
+                                                                        ]
+                                                      },
+                           "sla_monitoring":  {
+                                                  "evaluation_timestamp_utc":  "2026-08-14T12:26:12.686158+00:00",
+                                                  "case_id":  "CASE-20260814-035612-R100111",
+                                                  "priority":  "P3",
+                                                  "case_status":  "Contained - Analyst Review Required",
+                                                  "assigned_queue":  "SOC Standard Investigation Queue",
+                                                  "sla":  {
+                                                              "sla_hours":  8,
+                                                              "created_at_utc":  "2026-08-14T03:56:12.686158+00:00",
+                                                              "due_at_utc":  "2026-08-14T11:56:12.686158+00:00",
+                                                              "status":  "BREACHED",
+                                                              "case_age_minutes":  510.0,
+                                                              "remaining_minutes":  -30.0
+                                                          },
+                                                  "escalation":  {
+                                                                     "required":  true,
+                                                                     "level":  "Management Escalation",
+                                                                     "reason":  "Case SLA has been breached"
+                                                                 }
+                                              },
+                           "incident_risk":  {
+                                                 "evaluation_timestamp_utc":  "2026-08-14T05:42:28.354257+00:00",
+                                                 "incident_id":  "INC-20260813-051403-8E6ED3A1",
+                                                 "case_id":  "CASE-20260814-035612-R100111",
+                                                 "rule_id":  "100111",
+                                                 "risk_score":  75,
+                                                 "risk_level":  "CRITICAL",
+                                                 "recommended_action":  "Immediate SOC escalation, containment validation, and incident-response investigation required",
+                                                 "risk_components":  {
+                                                                         "wazuh_severity":  20,
+                                                                         "ioc_risk":  0,
+                                                                         "mitre_context":  8,
+                                                                         "asset_criticality":  12,
+                                                                         "containment_status":  15,
+                                                                         "sla_status":  10,
+                                                                         "correlated_activity":  10
+                                                                     },
+                                                 "context":  {
+                                                                 "source_ip":  "192.168.130.141",
+                                                                 "destination_ip":  "192.168.130.130",
+                                                                 "destination_port":  "445",
+                                                                 "mitre_ids":  [
+                                                                                   "T1046"
+                                                                               ],
+                                                                 "asset_criticality":  "HIGH",
+                                                                 "containment_status":  "FAILED",
+                                                                 "sla_status":  "BREACHED",
+                                                                 "alert_count":  10
+                                                             }
+                                             },
+                           "incident_timeline":  {
+                                                     "reconstruction_timestamp_utc":  "2026-08-14T06:06:59.730547+00:00",
+                                                     "incident_id":  "INC-20260813-051403-8E6ED3A1",
+                                                     "case_id":  "CASE-20260814-035612-R100111",
+                                                     "rule_id":  "100111",
+                                                     "event_count":  5,
+                                                     "timeline_start_utc":  "2026-08-13T05:14:03.915000+00:00",
+                                                     "timeline_end_utc":  "2026-08-14T05:39:33.504577+00:00",
+                                                     "total_timeline_duration_seconds":  87929.59,
+                                                     "total_timeline_duration_minutes":  1465.49,
+                                                     "events":  [
+                                                                    {
+                                                                        "sequence":  1,
+                                                                        "timestamp_utc":  "2026-08-13T05:14:03.915000+00:00",
+                                                                        "event_type":  "SECURITY_ALERT",
+                                                                        "source":  "Wazuh / Detection 005",
+                                                                        "description":  "Wazuh Rule 100111 detected activity from 192.168.130.141 to 192.168.130.130:445",
+                                                                        "elapsed_from_initial_event_seconds":  0.0,
+                                                                        "elapsed_from_initial_event_minutes":  0.0,
+                                                                        "gap_from_previous_event_seconds":  0,
+                                                                        "gap_from_previous_event_minutes":  0.0
+                                                                    },
+                                                                    {
+                                                                        "sequence":  2,
+                                                                        "timestamp_utc":  "2026-08-14T03:39:46.338412+00:00",
+                                                                        "event_type":  "TRIAGE_COMPLETED",
+                                                                        "source":  "Detection 005",
+                                                                        "description":  "Automated alert triage completed",
+                                                                        "elapsed_from_initial_event_seconds":  80742.423,
+                                                                        "elapsed_from_initial_event_minutes":  1345.71,
+                                                                        "gap_from_previous_event_seconds":  80742.423,
+                                                                        "gap_from_previous_event_minutes":  1345.71
+                                                                    },
+                                                                    {
+                                                                        "sequence":  3,
+                                                                        "timestamp_utc":  "2026-08-14T03:56:12.686158+00:00",
+                                                                        "event_type":  "CASE_CREATED",
+                                                                        "source":  "Detection 006",
+                                                                        "description":  "SOC case CASE-20260814-035612-R100111 created with priority P3",
+                                                                        "elapsed_from_initial_event_seconds":  81728.771,
+                                                                        "elapsed_from_initial_event_minutes":  1362.15,
+                                                                        "gap_from_previous_event_seconds":  986.348,
+                                                                        "gap_from_previous_event_minutes":  16.44
+                                                                    },
+                                                                    {
+                                                                        "sequence":  4,
+                                                                        "timestamp_utc":  "2026-08-14T04:10:24.850571+00:00",
+                                                                        "event_type":  "NOTIFICATION_GENERATED",
+                                                                        "source":  "Detection 007",
+                                                                        "description":  "SOC notification generated with escalation level No Immediate Escalation",
+                                                                        "elapsed_from_initial_event_seconds":  82580.936,
+                                                                        "elapsed_from_initial_event_minutes":  1376.35,
+                                                                        "gap_from_previous_event_seconds":  852.164,
+                                                                        "gap_from_previous_event_minutes":  14.2
+                                                                    },
+                                                                    {
+                                                                        "sequence":  5,
+                                                                        "timestamp_utc":  "2026-08-14T05:39:33.504577+00:00",
+                                                                        "event_type":  "RISK_ASSESSMENT",
+                                                                        "source":  "Detection 011",
+                                                                        "description":  "Incident risk evaluated as MEDIUM with score 40/100",
+                                                                        "elapsed_from_initial_event_seconds":  87929.59,
+                                                                        "elapsed_from_initial_event_minutes":  1465.49,
+                                                                        "gap_from_previous_event_seconds":  5348.654,
+                                                                        "gap_from_previous_event_minutes":  89.14
+                                                                    }
+                                                                ]
+                                                 },
+                           "response_recommendation":  {
+                                                           "recommendation_timestamp_utc":  "2026-08-14T06:31:21.326941+00:00",
+                                                           "incident_id":  "INC-20260813-051403-8E6ED3A1",
+                                                           "case_id":  "CASE-20260814-035612-R100111",
+                                                           "input_context":  {
+                                                                                 "risk_score":  75,
+                                                                                 "risk_level":  "CRITICAL",
+                                                                                 "priority":  "P2",
+                                                                                 "case_status":  "Contained - Analyst Review Required",
+                                                                                 "asset_criticality":  "HIGH",
+                                                                                 "containment_status":  "FAILED",
+                                                                                 "sla_status":  "BREACHED",
+                                                                                 "alert_count":  0,
+                                                                                 "duplicate_alerts":  0,
+                                                                                 "mitre_techniques":  [
+
+                                                                                                      ]
+                                                                             },
+                                                           "response_decision":  {
+                                                                                     "urgency":  "IMMEDIATE",
+                                                                                     "escalation_required":  true,
+                                                                                     "escalation_level":  "Management Escalation"
+                                                                                 },
+                                                           "investigation_actions":  [
+                                                                                         "Review the originating security alert and validate the detection context",
+                                                                                         "Review source and destination activity around the detection timestamp",
+                                                                                         "Prioritize investigation because the affected asset has elevated business criticality",
+                                                                                         "Document the SLA breach and prioritize immediate case review",
+                                                                                         "Initiate full incident-response investigation for critical-risk activity"
+                                                                                     ],
+                                                           "containment_actions":  [
+                                                                                       "Perform manual containment immediately",
+                                                                                       "Validate endpoint and network isolation controls",
+                                                                                       "Confirm whether suspicious activity remains active after containment attempts"
+                                                                                   ],
+                                                           "evidence_collection_actions":  [
+                                                                                               "Preserve the original alert and enrichment results",
+                                                                                               "Preserve triage, case-management, notification, SLA, and risk-scoring artifacts",
+                                                                                               "Record analyst findings and response actions in the incident case"
+                                                                                           ],
+                                                           "closure_guidance":  [
+                                                                                    "Keep the case open until investigation, containment, and escalation requirements are completed"
+                                                                                ],
+                                                           "analyst_summary":  "IMMEDIATE response recommended. Management Escalation is required because incident sla has been breached."
+                                                       },
+                           "soc_metrics":  {
+                                               "generated_at_utc":  "2026-08-14T06:44:31.490569+00:00",
+                                               "dataset":  "SOC Automation Lab - Detection 014",
+                                               "alert_metrics":  {
+                                                                     "alerts_processed":  4,
+                                                                     "incidents_created":  3,
+                                                                     "correlated_alerts":  1,
+                                                                     "deduplication_rate_percent":  25.0,
+                                                                     "incident_creation_rate_percent":  75.0
+                                                                 },
+                                               "sla_metrics":  {
+                                                                   "evaluations":  3,
+                                                                   "within_sla":  1,
+                                                                   "at_risk":  1,
+                                                                   "breached":  1,
+                                                                   "sla_compliance_rate_percent":  33.33,
+                                                                   "sla_breach_rate_percent":  33.33
+                                                               },
+                                               "risk_metrics":  {
+                                                                    "assessments":  2,
+                                                                    "average_risk_score":  57.5,
+                                                                    "highest_risk_score":  75.0,
+                                                                    "risk_level_distribution":  {
+                                                                                                    "MEDIUM":  1,
+                                                                                                    "CRITICAL":  1
+                                                                                                }
+                                                                },
+                                               "response_metrics":  {
+                                                                        "decisions":  3,
+                                                                        "escalated_decisions":  2,
+                                                                        "escalation_rate_percent":  66.67,
+                                                                        "urgency_distribution":  {
+                                                                                                     "STANDARD":  1,
+                                                                                                     "IMMEDIATE":  2
+                                                                                                 }
+                                                                    },
+                                               "timeline_metrics":  {
+                                                                        "event_count":  5,
+                                                                        "total_timeline_duration_minutes":  1465.49,
+                                                                        "timeline_start_utc":  "2026-08-13T05:14:03.915000+00:00",
+                                                                        "timeline_end_utc":  "2026-08-14T05:39:33.504577+00:00"
+                                                                    }
+                                           }
+                       }
+}
