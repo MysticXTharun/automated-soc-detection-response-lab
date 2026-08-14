@@ -1,0 +1,68 @@
+{
+    "reconstruction_timestamp_utc": "2026-08-14T06:06:59.730547+00:00",
+    "incident_id": "INC-20260813-051403-8E6ED3A1",
+    "case_id": "CASE-20260814-035612-R100111",
+    "rule_id": "100111",
+    "event_count": 5,
+    "timeline_start_utc": "2026-08-13T05:14:03.915000+00:00",
+    "timeline_end_utc": "2026-08-14T05:39:33.504577+00:00",
+    "total_timeline_duration_seconds": 87929.59,
+    "total_timeline_duration_minutes": 1465.49,
+    "events": [
+        {
+            "sequence": 1,
+            "timestamp_utc": "2026-08-13T05:14:03.915000+00:00",
+            "event_type": "SECURITY_ALERT",
+            "source": "Wazuh / Detection 005",
+            "description": "Wazuh Rule 100111 detected activity from 192.168.130.141 to 192.168.130.130:445",
+            "elapsed_from_initial_event_seconds": 0.0,
+            "elapsed_from_initial_event_minutes": 0.0,
+            "gap_from_previous_event_seconds": 0,
+            "gap_from_previous_event_minutes": 0.0
+        },
+        {
+            "sequence": 2,
+            "timestamp_utc": "2026-08-14T03:39:46.338412+00:00",
+            "event_type": "TRIAGE_COMPLETED",
+            "source": "Detection 005",
+            "description": "Automated alert triage completed",
+            "elapsed_from_initial_event_seconds": 80742.423,
+            "elapsed_from_initial_event_minutes": 1345.71,
+            "gap_from_previous_event_seconds": 80742.423,
+            "gap_from_previous_event_minutes": 1345.71
+        },
+        {
+            "sequence": 3,
+            "timestamp_utc": "2026-08-14T03:56:12.686158+00:00",
+            "event_type": "CASE_CREATED",
+            "source": "Detection 006",
+            "description": "SOC case CASE-20260814-035612-R100111 created with priority P3",
+            "elapsed_from_initial_event_seconds": 81728.771,
+            "elapsed_from_initial_event_minutes": 1362.15,
+            "gap_from_previous_event_seconds": 986.348,
+            "gap_from_previous_event_minutes": 16.44
+        },
+        {
+            "sequence": 4,
+            "timestamp_utc": "2026-08-14T04:10:24.850571+00:00",
+            "event_type": "NOTIFICATION_GENERATED",
+            "source": "Detection 007",
+            "description": "SOC notification generated with escalation level No Immediate Escalation",
+            "elapsed_from_initial_event_seconds": 82580.936,
+            "elapsed_from_initial_event_minutes": 1376.35,
+            "gap_from_previous_event_seconds": 852.164,
+            "gap_from_previous_event_minutes": 14.2
+        },
+        {
+            "sequence": 5,
+            "timestamp_utc": "2026-08-14T05:39:33.504577+00:00",
+            "event_type": "RISK_ASSESSMENT",
+            "source": "Detection 011",
+            "description": "Incident risk evaluated as MEDIUM with score 40/100",
+            "elapsed_from_initial_event_seconds": 87929.59,
+            "elapsed_from_initial_event_minutes": 1465.49,
+            "gap_from_previous_event_seconds": 5348.654,
+            "gap_from_previous_event_minutes": 89.14
+        }
+    ]
+}
