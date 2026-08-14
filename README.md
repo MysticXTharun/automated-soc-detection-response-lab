@@ -76,6 +76,17 @@ Executive Reporting
 
 ---
 
+## Project Documentation
+
+Detailed project documentation is available here:
+
+| Document | Description |
+|---|---|
+| [Architecture](docs/architecture.md) | Complete SOC architecture, automation layers, data flow, and detection dependencies |
+| [Evidence Index](docs/evidence-index.md) | Centralized index of validation evidence and automation results |
+
+---
+
 ## Lab Architecture
 
 | System | Purpose | Lab IP |
