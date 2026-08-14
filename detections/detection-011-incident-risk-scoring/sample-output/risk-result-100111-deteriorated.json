@@ -1,0 +1,30 @@
+{
+    "evaluation_timestamp_utc": "2026-08-14T05:42:28.354257+00:00",
+    "incident_id": "INC-20260813-051403-8E6ED3A1",
+    "case_id": "CASE-20260814-035612-R100111",
+    "rule_id": "100111",
+    "risk_score": 75,
+    "risk_level": "CRITICAL",
+    "recommended_action": "Immediate SOC escalation, containment validation, and incident-response investigation required",
+    "risk_components": {
+        "wazuh_severity": 20,
+        "ioc_risk": 0,
+        "mitre_context": 8,
+        "asset_criticality": 12,
+        "containment_status": 15,
+        "sla_status": 10,
+        "correlated_activity": 10
+    },
+    "context": {
+        "source_ip": "192.168.130.141",
+        "destination_ip": "192.168.130.130",
+        "destination_port": "445",
+        "mitre_ids": [
+            "T1046"
+        ],
+        "asset_criticality": "HIGH",
+        "containment_status": "FAILED",
+        "sla_status": "BREACHED",
+        "alert_count": 10
+    }
+}
