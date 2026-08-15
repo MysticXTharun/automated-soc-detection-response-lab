@@ -87,6 +87,62 @@ Detailed project documentation is available here:
 
 ---
 
+## Visual Evidence
+
+The repository includes screenshots showing the complete SOC workflow from telemetry collection and detection through automated response, orchestration, risk scoring, and executive reporting.
+
+### Platform & Telemetry
+
+**Wazuh Windows Agent Active**
+
+![Wazuh Windows Agent Active](screenshots/platform/01-wazuh-agent-active.png)
+
+**Sysmon Endpoint Telemetry**
+
+![Sysmon Endpoint Telemetry](screenshots/platform/02-sysmon-events.png)
+
+### Detection & Response
+
+**Custom Network Reconnaissance Detection — Wazuh Rule 100111 / MITRE T1046**
+
+![Network Reconnaissance Detection](screenshots/detections/03-recon-detection.png)
+
+**Automated Windows Firewall Containment and Recovery**
+
+![Automated Containment](screenshots/detections/04-active-response-block.png)
+
+### SOC Automation
+
+**IOC Enrichment**
+
+![IOC Enrichment](screenshots/automation/05-ioc-enrichment.png)
+
+**Context-Aware Alert Triage**
+
+![Automated Alert Triage](screenshots/automation/06-alert-triage.png)
+
+**Automated Case Management**
+
+![Automated Case Management](screenshots/automation/07-case-management.png)
+
+**End-to-End SOC Playbook Orchestration**
+
+![SOC Playbook Orchestration](screenshots/automation/08-playbook-orchestration.png)
+
+**Dynamic Incident Risk Scoring**
+
+![Incident Risk Scoring](screenshots/automation/09-risk-scoring.png)
+
+### Executive Reporting
+
+**SOC Executive Incident Report**
+
+![SOC Executive Reporting](screenshots/reporting/10-executive-report.png)
+
+For a structured evidence map, see the [Evidence Index](docs/evidence-index.md).
+
+---
+
 ## Lab Architecture
 
 | System | Purpose | Lab IP |
